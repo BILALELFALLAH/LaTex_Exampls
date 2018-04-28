@@ -1,0 +1,113 @@
+\documentclass[11pt]{beamer}
+%\usetheme{Berkeley}
+\usetheme{Warsaw}
+%\usetheme{AnnArbor}
+%\usetheme{Berlin}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Szeged}
+%\usetheme{CambridgeUS}
+%\usetheme{Malmoe}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\author{  B.EL FALLAH\\ {\color{blue}{ Coordonateur:}} Dr.ELHAJJAJI Otmane }
+\title{Méthode d'Euler en language Fortran90}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+\logo{\includegraphics[scale=0.3]{fst.png}} 
+\institute{UAE, Faculté des sciences de Tétouan} 
+%\date{} 
+%\subject{} 
+
+\begin{document}
+
+\begin{frame}
+\frametitle{TRAVAUX PRATIQUES DE METHODES NUMERIQUES}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Planing}
+\tableofcontents
+\end{frame}
+
+\begin{frame}%{Principe de la méthode}
+\frametitle{Description de la méthode}
+\section{Principe de la méthode}
+\begin{block}
+
+
+La méthode d'euler consiste à chercher une solution approchée de :
+{\color{blue}{  $$\dfrac{dy}{dx}=f(x,y)$$ }} avec { \color{blue}{ $y_{0}=y(x_{0})$}}
+sur l'intervalle $ I=[x_{0},x_{N}] $\\
+le pas d'intégration est :{\color{blue}{  $$ h=\frac{x_{N}-x_{0}}{N}$$\\}}
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Description de la méthode}
+\begin{minipage}[r]{0.48\textwidth} \hfill
+
+\begin{block}
+
+
+{\color{red}{
+Géométriquement}} : Remplacer la courbe sur $$ [x_{i} , x_{i}+h] $$ par la tangente.
+Si $$ M_{N}(x_{n} , y_{n})$$ est le point courant de la courbe "solution", le nouveau point :\\
+ $$ M_{N+1}(x_{N} +h , y_{N}+ h\times f(x_{N} , y_{N})) $$ .
+\end{block}
+\end{minipage}
+\begin{minipage}[l]{0.45\textwidth} 
+\includegraphics[scale=0.4]{courbe.png}
+\end{minipage}
+\end{frame}
+\begin{frame}
+\section{Application de la méthode}
+\subsection{Résolution analytique}
+\frametitle{Résolution analytique}
+\begin{block}
+
+
+la résolution de l'EDO suivante :
+{\color{blue}{  $$ \dfrac{dy}{dx}=x+y $$ }}
+avec { \color{blue}{ $$ y_{0}=1 $$}}
+est obtenue analytiquement comme suit :
+$$ y(x)=2e^{x}-x-1 $$.
+\end{block}
+\end{frame}
+\begin{frame}
+\subsection{Résolution numerique sur machine}
+\subsubsection{Algorithme}
+\frametitle{Algorithme}
+\includegraphics[scale=0.49]{alg.png}
+\end{frame}
+\begin{frame}
+\subsubsection{Programme en language gFortran}
+\frametitle{Code source du programme en gFortran}
+\begin{block}
+
+
+\includegraphics[scale=0.3]{prog.png}
+\end{block}
+
+
+\end{frame}
+
+\begin{frame}
+\subsubsection{Resultat du programe}
+\frametitle{Resultat du programe}
+\includegraphics[scale=0.44]{res.png}
+
+\end{frame}
+\begin{frame}
+\subsubsection{Representation graphique}
+\frametitle{Representation graphique}
+\includegraphics[scale=0.6]{gra.png}
+\end{frame}
+
+\end{document}
